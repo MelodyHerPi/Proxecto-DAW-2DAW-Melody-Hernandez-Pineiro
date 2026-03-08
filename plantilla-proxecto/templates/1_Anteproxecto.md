@@ -9,22 +9,25 @@
   - [4- Requirimentos técnicos](#4--requirimentos-técnicos)
   - [5- Planificación](#5--planificación)
 
-> _EXPLICACIÓN_: Este documento será a páxina de explicación de en que consiste o teu proxecto. Coida a súa redacción con todo ou teu mimo. Elimina posteriormente todas as lineas "EXPLICACIÓN" cando creas finalizada a súa redacción.
-> Podes acompañar á redacción deste ficheiro con imaxes, pero non abuses deles.
-> Explica da mellor forma posible de en que consiste o proxecto é que ferramentas e linguaxes de programación empregarás.
 
 ## 1- Idea do proxecto
+**All Dance Together - Encuentra grupos de kpop dance cover a tu alrededor.**
+Este proyecto nace con la ilusión de crear un punto de encuentro entre la comunidad "kpoper" de Galicia en un mismo espacio digital.
+La idea es sencilla pero útil, ya que no existe dicha plataforma: centralizar en una sola web toda la información de grupos y solistas locales, contando con fichas de presentación, foros, sistema de noticias, acceso a las redes sociales, alertas de eventos próximos a ti, ¡incluso podrás crear tus propias quedadas y concursos! 
+El concepto clave del proyecto es la unión de la comunidad. 
 
-> _EXPLICACIÓN_: Realiza unha breve descrición do anteproxecto. Resalta o fundamental *coas túas propias palabras\*\*. Utiliza unha linguaxe correcta,*pero natural\*\*, que o entenda todo o mundo, mesmo e en especial, as persoas que non teñan un coñecemento técnico avanzado. Pode ser un estracto ou resumo de apartados que xa contemples noutros ficheiros.
+En cuanto al ámbito tecnológico, se usará HTML 5 y CSS 3 para la parte visual (frontend), conjuntamente con JavaScript para dotar a la web de dinamismo e interactividad, la lógica interna y gestión de datos con PHP, mientras que el almacenamiento de datos con MariaDB.
 
 ## 2- Contextualización
+El propósito del proyecto es el desarrollo de una plataforma web integral diseñada para potenciar la socialización de la comunidad de dance cover de Kpop en Galicia. 
+Actualmente, no existe un punto de encuentro único, ya que todo se divide en diversas redes sociales, lo que dificulta la localización de grupos, búsqueda de integrantes y difusión de eventos. 
 
-> _EXPLICACIÓN_: Realiza unha contextualización que identifique as necesidades ás que dará resposta o proxecto.
->
-> Neste apartado trátase de describir a análise realizada e a toma de decisións adoptada sobre aspectos básicos ou iniciais do proxecto como:
->
-> - En que consiste o noso proxecto? Cal é o propósito principal da aplicación a desenvolver? Cales son os obxectivos?
-> - O desenvolvemento da aplicación abre unha oportunidade de negocio? É posible comercializala? Como?
+El objetivo principal es centralizar la información del ámbito y sus integrantes, fomentar la colaboración con nuevos grupos, dinamizar la agenda cultural (con alertas y panel de eventos/quedadas), entre otros objetivos más secundarios. 
+
+Tras analizar las necesidades del ecosistema digital actual, me he dado cuenta que no se suele mostrar información local de forma eficiente. Por ello, he decidido apostar por una arquitectura simple pero eficiente. La decisión de tecnologías como PHP y MariaDB es debido a la necesidad de gestionar datos de forma robusta para los foros y registros de usuarios, mientras que Docker me asegura que la aplicación sea escalable y fácil de desplegar. 
+
+En cuanto a la oportunidad de negocio y comercialización, aunque la idea nace con un espíritu comunitario y de software libre, tiene una clara oportunidad de negocio para el sector del ocio y cultura juvenil. La web puede ser un escaparate perfecto para tiendas de merchandising, academias de baile o tiendas con productos asiáticos; además, se podría comercializar la plataforma a modo de gestión de organizadores de concursos de baile, ofreciendo servicios premium o de venta de entradas. 
+
 
 ## 3- Estudio de alternativas e viabilidade
 
