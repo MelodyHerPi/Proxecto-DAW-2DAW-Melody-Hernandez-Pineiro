@@ -80,24 +80,31 @@ La creación total del proyecto se llevará a cabo en unas 14 semanas aproximada
 - Implantación: 1 semana (fecha límite 31/05/2026).
 - Entrega final: 1 semana (fecha límite 07/06/2026).
 
+### Diagrama de gantt 
 ```mermaid
 gantt
-    title Planificación All Dance Together
+    title Planificación Integral: All Dance Together
     dateFormat  YYYY-MM-DD
+    axisFormat %d/%m
+    
+    section Fase Inicial
+    Anteproyecto (Memoria y Definición) :done, 2026-03-02, 2026-03-11
+    Plan de Empresa y Modelo de Negocio :active, 2026-03-12, 2026-03-16
+    Análisis de Sistema y Requisitos     : 2026-03-17, 2026-03-23
+    Diseño de Arquitectura y Mockups    : 2026-03-24, 2026-04-08
 
-    section Pre-desarrollo
-    Estudio preliminar (Anteproyecto) :done, des1, 2026-03-02, 2026-03-10
-    Análisis de requisitos            :active, des2, 2026-03-11, 2026-03-22
+    section Desarrollo Core
+    Configuración Entorno Docker y DB    : 2026-04-09, 2026-04-15
+    Desarrollo Backend (MVC PHP)         : 2026-04-16, 2026-05-10
+    Hito: 1ª Entrega Funcional           : milestone, 2026-04-29, 1d
+    Desarrollo Frontend e Interactividad : 2026-04-25, 2026-05-20
+    Integración de API y Notificaciones  : 2026-05-10, 2026-05-25
+    Hito: 2ª Entrega (Versión Beta)      : milestone, 2026-05-25, 1d
 
-    section Diseño
-    Diseño (Arquitectura y UI)        :des3, 2026-03-23, 2026-04-07
-
-    section Codificación
-    Codificación y Pruebas I (1ª Entrega)  :des4, 2026-04-08, 2026-04-29
-    Codificación y Pruebas II (2ª Entrega) :des5, 2026-04-30, 2026-05-24
-
-    section Finalización
-    Implantación y Despliegue         :des6, 2026-05-25, 2026-05-31
-    Entrega Final                     :des7, 2026-06-01, 2026-06-07
+    section Despliegue y Cierre
+    Testing y Control de Errores         : 2026-05-26, 2026-06-01
+    Implantación y Paso a Producción     : 2026-06-01, 2026-06-05
+    Hito: Entrega Final                  : milestone, 2026-06-08, 1d
+    Documentación y Preparación Defensa  : 2026-06-05, 2026-06-12
 ```
 [**<-Anterior**](../README.md)
