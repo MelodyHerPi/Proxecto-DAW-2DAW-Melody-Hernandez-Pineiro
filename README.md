@@ -53,7 +53,7 @@ He seleccionado la licencia GNU GPLv3, ya que garantiza la libertad fundamental 
 ## Índice
 1. [Anteproyecto](/plantilla-proxecto/templates/1_Anteproyecto.md)
 2. [Empresa](/plantilla-proxecto/templates/2_Empresa.md)
-3. [Análise](/plantilla-proxecto/templates/3_Analise.md)
+3. [Análisis](/plantilla-proxecto/templates/3_Analise.md)
 4. [Deseño](/plantilla-proxecto/templates/4_Deseño.md)
 5. [Codificación e probas](/plantilla-proxecto/templates/5_Codificacion_e_probas.md)
 6. [Implantación](/plantilla-proxecto/templates/6_Implantación.md)
