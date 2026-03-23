@@ -18,8 +18,6 @@ El concepto clave del proyecto es la unión de la comunidad.
 
 ## 2- Funcionalidades
 
-## 2- Funcionalidades
-
 | Acción | Descripción | Entrada | Proceso | Salida |
 | :--- | :--- | :--- | :--- | :--- |
 | **Registro de Usuario/Grupo** | Creación de cuenta en la plataforma. | Datos de perfil (nombre, zona, estilo). | Validación y almacenamiento en MariaDB. | Cuenta activa y acceso al panel. |
