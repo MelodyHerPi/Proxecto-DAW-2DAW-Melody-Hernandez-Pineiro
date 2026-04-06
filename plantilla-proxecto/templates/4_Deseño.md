@@ -4,38 +4,132 @@
   - [1- Diagrama da arquitectura](#1--diagrama-da-arquitectura)
   - [2- Casos de uso](#2--casos-de-uso)
   - [3- Diagrama de Base de Datos](#3--diagrama-de-base-de-datos)
-  - [4- Deseño de interface de usuarios](#4--deseño-de-interface-de-usuarios)
-
-> *EXPLICACIÓN:* Este documento inclúe os diferentes diagramas, esquemas e deseños que axuden a describir mellor o [nome do proxecto] detallando os seus compoñentes, funcionalidades, bases de datos e interface.
+  - [4- Diseño de interfaz de usuarios](#4--diseño-de-interfaz-de-usuarios)
 
 ## 1- Diagrama da arquitectura
+La arquitectura de All Dance Together se basa en un modelo Cliente-Servidor estructurado en tres capas, utilizando el patrón de diseño MVC (Modelo-Vista-Controlador) para separar la lógica de negocio de la interfaz de usuario. 
 
-> *EXPLICACIÓN:* Incluír os diagramas de arquitectura que representen de forma gráfica a aplicación, os seus compoñentes e a súa interrelación: front-end, back-end, bases de datos, nube, microservizos, etc.
+Para garantizar la portabilidad y un entorno de ejecución idéntico en desarrollo y producción, todo el sistema se despliega mediante contenedores Docker.
+
+### Descripción de las capas:
+
+- Capa de Presentación (Frontend): Construida con HTML5, CSS3 y JavaScript nativo. Se encarga de renderizar las fichas de los grupos, el calendario de eventos y los foros de discusión, asegurando una experiencia responsive para dispositivos móviles y escritorio.
+- Capa de Negocio (Backend): Implementada en PHP 8.4 siguiendo el patrón MVC. Procesa las peticiones del usuario, gestiona la lógica de las notificaciones de eventos próximos y asegura la comunicación con la base de datos de forma segura.
+- Capa de Datos: Gestionada por un servidor MariaDB. El acceso a los datos se realiza exclusivamente mediante PDO (PHP Data Objects) para prevenir ataques de inyección SQL y garantizar la integridad de la información de la comunidad.
+
+### Diagrama de componentes y despliegue:
+
+```mermaid
+graph LR
+    subgraph "Dispositivo de Usuario"
+
+        A[Navegador Web / HTML5 + JS]
+    end
+
+    subgraph "Contenedor Docker (Servidor Web)"
+
+        B[Servidor Apache]
+        C[Motor PHP 8.4 - Lógica MVC]
+    end
+
+    subgraph "Contenedor Docker (Base de Datos)"
+
+        D[(MariaDB)]
+    end
+
+    A <-->|Peticiones HTTP/HTTPS| B
+    B --- C
+    C <-->|Conexión Segura PDO| D
+  ```
 
 ## 2- Casos de uso
 
-> *EXPLICACIÓN:* Facer os diagramas de casos de uso que representen como as persoas usuarias interaccionan co sistema.
->
->Deben incluírse o(s) tipo(s) de usuario implicados en cada caso de uso.
+### Actores del Sistema
+| Actor | Descripción | Nivel de Acceso |
+|-------|-------------|-----------------|
+| Visitante (Anónimo) | Persona que puede acceder a la pantalla de regsitro |
+| Usuario Registrado | Bailarín o grupo que se ha autenticado | Lectura/Escritura en su perfil |
+| Organizador | Usuario con permisos para crear y gestionar eventos | Lectura/Escritura de eventos |
+| Administrador | Superusuario con control total del sistema | Control total |
+
+![alt text](image-1.png)
 
 ## 3- Diagrama de Base de Datos
 
-> *EXPLICACIÓN:* Neste apartado incluiranse os diagramas relacionados coa Base de Datos:
->
-> - Modelo Entidade/relación
-> - Modelo relacional
->
-> Pódese entregar a captura do phpMyAdmin se se emprega MariaDB como Modelo relacional.
+                        ┌──────────────────┐
+                        │  NOTIFICACION    │
+                        ├──────────────────┤
+                        │ ◉ id             │
+                        │ • tipo           │
+                        │ • contenido      │
+                        │ • leída          │
+                        │ • fecha_creación │
+                        │ • FK: usuario_id │
+                        │ • FK: evento_id  │
+                        └────┬────────┬────┘
+                             │        │
+                    RECIBE (1:N)   GENERA (1:N)
+                             │        │
+                             │        └──────────┐
+                    ┌────────▼────────┐          │
+                    │     USUARIO     │          │
+                    ├─────────────────┤          │
+                    │ ◉ id            │          │
+                    │ • email         │          │
+                    │ • contraseña    │          │
+                    │ • nombre        │          │
+                    │ • rol           │          │
+                    │ • provincia     │          │
+                    │ • ciudad        │          │
+                    │ • teléfono      │          │
+                    │ • bio           │          │
+                    │ • foto_perfil   │          │
+                    │ • estado        │          │
+                    │ • fecha_registro│          │
+                    │ • redes_sociales│          │
+                    └────────┬────────┘          │
+                             │                   └──────────┐ 
+            ┌────────────────┼────────────────┐             │
+            │                │                │             │
+       CREA (1:N)     ORGANIZA (1:N)   ESCRIBE (1:N)        │
+            │                │                │             │
+     ┌──────▼──────┐  ┌──────▼──────┐  ┌──────▼───────┐     │
+     │    GRUPO    │  │   EVENTO    │  │  HILO_FORO   │     │
+     ├─────────────┤  ├─────────────┤  ├──────────────┤     │
+     │ ◉ id        │  │ ◉ id        │ │ ◉ id         │     │
+     │ • nombre    │  │ • nombre    │  │ • título     │     │
+     │ • miembros  │  │ • tipo      │  │ • contenido  │     │
+     │ • galería   │  │ • fecha_hora│  │ • categoría  │     │
+     │ • ciudad    │  │ • ciudad    │  │ • estado     │     │
+     │ • descripción  │ • capacidad │  │ • fecha_crea │     │
+     │ • año_form  │  │ • descripción  └──────┬───────┘     │
+     └─────────────┘  │ • estado    │         │             │
+                      │ • fecha_crea   CONTIENE (1:N)       │
+                      └─────▲───────┘         │             │
+                            │         ┌───────▼─────────┐   │
+                            │         │ MENSAJE_FORO    │   │
+                            │         ├─────────────────┤   │
+                            │         │ ◉ id            │   │
+                            │         │ • contenido     │   │
+                            │         │ • fecha_creación│   │
+                            │         │ • reportes      │   │
+                            │         └─────────────────┘   │
+                            └───────────────────────────────┘
 
-## 4- Deseño de interface de usuarios
+Leyenda: ◉ = Atributo identificador (clave primaria) • = Atributo descriptor FK = Clave foránea (relación)
 
-> *EXPLICACIÓN:* Neste apartado deben incluírse unha mostra representativan dos mockups da aplicación. Estes mockups deben incluír todas as vistas da aplicación, é dicir, todas as páxinas diferentes que unha persoa usuaria (de calquera tipo) vai poder ver. Tamén se debe incluír información de como navegar dunha ventá a outra.
->
-> Os mockups axudan no deseño da aplicación. Poden facerse á man, cunha aplicación ou a través dunha web do estilo: diagrams Un mockup permite ver como se verá unha páxina concreta dunha aplicación web. O deseño de mockups axuda a:
->
-> - Avanzar moi rápido na parte frontend: ao ter os mockups realizados, permite saber que elementos vai ter cada vista e onde colocalos.
-> - Visualizar a información que vai a ser necesaria mostrar. Sabendo con que información imos traballar e sabendo a información que necesitamos mostrar, podemos organizar os datos dunha forma axeitada para gardalos na base de datos.
->
-> Se temos as ideas máis claras do noso proxecto podemos sustituir os mockups por prototipos.
->
-[**<-Anterior**](../../README.md)
+| # | Relación | Entidad 1 | Entidad 2 | Cardinalidad | Atributo FK | Descripción |
+|---|----------|-----------|-----------|--------------|-------------|-------------|
+| R1 | CREA | USUARIO | GRUPO | 1:N | usuario_id | Un usuario puede crear 0 o más grupos |
+| R2 | ORGANIZA | USUARIO | EVENTO | 1:N | organizador_id | Un usuario organizador puede crear múltiples eventos |
+| R3 | ESCRIBE (Hilos) | USUARIO | HILO_FORO | 1:N | usuario_id | Un usuario puede crear múltiples hilos |
+| R4 | ESCRIBE (Mensajes) | USUARIO | MENSAJE_FORO | 1:N | usuario_id | Un usuario puede escribir múltiples mensajes |
+| R5 | CONTIENE | HILO_FORO | MENSAJE_FORO | 1:N | hilo_id | Un hilo contiene 0 o más mensajes |
+| R6 | RECIBE | USUARIO | NOTIFICACION | 1:N | usuario_id | Un usuario puede recibir múltiples notificaciones |
+| R7 | GENERA | EVENTO | NOTIFICACION | 1:N | evento_id | Un evento puede generar múltiples notificaciones |
+
+
+
+## 4- Diseño de interfaz de usuarios
+
+[<-Anterior](../../README.md)
