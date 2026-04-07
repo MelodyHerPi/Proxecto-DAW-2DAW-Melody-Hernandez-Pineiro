@@ -107,4 +107,4 @@ gantt
     Hito: Entrega Final                  : milestone, 2026-06-08, 1d
     Documentación y Preparación Defensa  : 2026-06-05, 2026-06-12
 ```
-[**<-Anterior**](../README.md)
+[**<-Anterior**](../../README.md)
