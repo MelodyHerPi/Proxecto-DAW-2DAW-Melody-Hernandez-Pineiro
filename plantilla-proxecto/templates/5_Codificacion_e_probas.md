@@ -10,7 +10,7 @@
 
 ## 1- Codificación
 
-La carpeta se encuentra subida en plantilla-proxecto
+La carpeta se encuentra subida en plantilla-proxecto/tfc.zip
 
 ## 2- Prototipos
 
