@@ -4,38 +4,24 @@
   - [1- Codificación](#1--codificación)
   - [2- Prototipos](#2--prototipos)
   - [3- Innovación](#3--innovación)
-  - [4- Probas](#4--probas)
+  - [4- Pruebas](#4--pruebas)
 
 > Este documento explica como se debe realizar a fase de codificación e probas.
 
 ## 1- Codificación
 
-> Crea unha carpeta no teu repositorio e sube o código frecuentemente.
->
-> Mentres se vai codificando a aplicación, iranse atopando problemas e haberá que ir modificando aspectos do deseño. Estes cambios tamén se deben recoller na documentación.
+La carpeta se encuentra subida en plantilla-proxecto
 
 ## 2- Prototipos
 
-> A medida que se vai codificando crearanse varios prototipos, preferentemente realizados con Figma. Para cada un indicar unha descrición das funcionalidades implementadas.
->
-> Debes ir incluindo unha mostra representativan dos prototipos da aplicación.
->
-> Os proptotipos axudan no deseño da aplicación. Podes empregar:
->
-> - [Sketch](https://www.sketch.com/)
-> - [Figma](https://www.figma.com/). Recomendada
-> - [Proto.io](https://proto.io/)
->
-> A mellor opción é empregar Figma xa que esta é unha ferramenta en línea colavorativa. 
-> **Comparte o prototipo cos profesores por medio de Figma ou descarga o arquivo local o cal subirás o teu repositorio de GitHub**.
-> **Este prototipos deberían estar listo e enviados o titor para revisalo na primeira semana desta fase.**
+https://www.figma.com/design/ukKq3Y8y8XER9wNLB7jRoA/Demo-All-Dance-Together?m=auto&t=bVj0iDurSxHSnzT7-6
 
 ## 3- Innovación
 
 No caso de utilizar tecnoloxías diferentes ás estudadas no ciclo formativo, fai unha descrición dos retos asumidos e como se resolveron.
 
-## 4- Probas
-
-Deben describirse as probas realizadas e conclusión obtidas. Describir os problemas atopados e como foron solucionados.
+## 4- Pruebas
+El principal problema que me estoy encontrando es que quería "replicar" de forma sencilla un archivo sh que tiene la empresa de prácticas, el cual al ejecutarse levanta los contenedores y abre directamente el navegador con la página del localhost. 
+En general, todo lo que fue configurar el entorno fue lo que más dificultades me supuso.
 
 [**<-Anterior**](../../README.md)
