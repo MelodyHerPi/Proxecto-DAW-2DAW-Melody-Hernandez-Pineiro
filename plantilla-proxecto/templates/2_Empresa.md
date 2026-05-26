@@ -47,25 +47,25 @@ El análisis del mercado y de la competencia, por una parte, es sencillo, ya que
 La plataforma identifica tres principales grupos de público, diferenciando claramente entre el usuario final (consumidor del servicio gratuito) y el cliente potencial (quien genera el retorno económico).
 
 ### Segmentación de Usuarios 
-Este grupo es el motor de la plataforma, su perfil es:
-- Perfil demográfico: Jóvenes de entre 14 y 30 años, residentes en Galicia, con especial concentración en las áreas metropolitanas de Vigo, A Coruña y Santiago de Compostela (zonas donde hay más grupos y se hacen la mayoría de concursos).
-- Comportamiento: Bailarines (grupos o solistas) y aficionados a la cultura coreana que buscan eventos y socialización.
-- Cuantificación: Se estima una comunidad de varios miles de personas en Galicia, basándonos en la alta participación en eventos como la Japan Weekend de Coruña o los concursos de baile locales, donde las inscripciones suelen agotarse en pocas horas.
+La plataforma identifica tres principales grupos de público, diferenciando claramente entre el usuario final y el cliente potencial.
 
-### Segmentación de Clientes
-Son las entidades o profesionales que ven en la plataforma un canal publicitario o de gestión:
-- Academias de baile y Centros Culturales: Entidades que ofrecen clases de danza urbana y K-pop y buscan captar alumnos segmentados geográficamente (Por lo general los grupos de covers nacen de personas que iban a la misma academia de baile).
-- Comercios especializados: Tiendas de merchandising, moda asiática y papelería temática.
-- Organizadores de Eventos: Asociaciones o empresas de eventos que requieren una herramienta para gestionar inscripciones, votaciones o venta de entradas para concursos de baile.
+### Segmentación de Usuarios 
+- Perfil demográfico: Jóvenes de entre 14 y 30 años, residentes en Galicia (Vigo, A Coruña, Santiago).
+- Comportamiento: Bailarines (grupos o solistas) y aficionados a la cultura coreana.
+
+### Cuantificación del Mercado (Estimación de Clientes Potenciales)
+Para proyectar los ingresos de forma realista, se ha segmentado el mercado potencial en Galicia:
+- **Academias de baile:** 45 academias de danza urbana con potencial de captación.
+- **Comercios especializados:** 15 tiendas de merchandising/moda asiática.
+- **Organizadores de eventos:** 12 eventos anuales relevantes.
+- **Base objetivo:** Con una penetración conservadora, se estima una base de **20 clientes recurrentes** (9 academias, 5 tiendas, 6 eventos) para el modelo de ingresos.
 
 ### Diferenciación entre Usuario y Cliente
-Es vital distinguir ambos roles para entender la viabilidad del proyecto:
-
 | Perfil | Rol | Relación con la plataforma |
 | :--- | :--- | :--- |
-| Bailarines/Fans | Usuario | Acceden de forma gratuita a las fichas, foros y calendario. Aportan el tráfico y el contenido (valor social). |
-| Empresas/Tiendas | Cliente | Pagan por espacios publicitarios segmentados o destacados en el directorio. |
-| Organizadores | Cliente | Pagan por el uso de la infraestructura técnica para gestionar sus concursos o la comisión por venta de entradas. |
+| Bailarines/Fans | Usuario | Gratuito; aportan tráfico y contenido. |
+| Empresas/Tiendas | Cliente | Pagan por publicidad segmentada. |
+| Organizadores | Cliente | Pagan por gestión de inscripciones/entradas. |
 
 ### Tamaño del Mercado
 Como ya se comentó anteriormente es un nicho en expansión. A nivel nacional ha crecido exponencialmente el interés por esta cultura musical,siendo Galicia una de las comunidades con más concursos e interés en este género y lo que le rodea. 
@@ -100,54 +100,35 @@ La respuesta es sencilla: estarán eligiendo una plataforma única que ayudará 
 La forma jurídica elegida para el desarrollo y explotación  es la de Empresario Individual (Autónomo), ya  que se ha optado por la simplicidad de la gestión de trámites (más rápidos y económicos que los de sociedad mercantil), baja inversión inicial y control total del proyecto. 
 
 ## 1.7- Inversiones
-
-La puesta en marcha de All Dance Together requiere una inversión inicial centrada en activos tecnológicos y operativos. Al ser un negocio digital, no se contempla la adquisición o alquiler de locales físicos, operando bajo un modelo de teletrabajo.
-
 | Elemento | Descripción | Coste Estimado |
 | :--- | :--- | :--- |
-| Equipo informático | Ordenador de alto rendimiento para desarrollo y virtualización (Docker). | 1.200 € |
-| Infraestructura de red | Router profesional y periféricos de conectividad. | 150 € |
-| Software y Licencias | Licencias de IDE, herramientas de diseño y dominio web (.es/.com). | 100 € |
-| Servidores (Hosting) | Pago inicial de servidor VPS optimizado para Docker y MariaDB (anual). | 180 € |
-| Mobiliario de oficina | Puesto de trabajo ergonómico (mesa y silla). | 350 € |
-| Gastos de constitución | Trámites administrativos y alta de actividad. | 60 € |
+| Equipo informático | Ordenador de alto rendimiento para desarrollo | 1.200 € |
+| Infraestructura de red | Router profesional y periféricos | 150 € |
+| Software y Licencias | IDE, herramientas de diseño, dominios | 100 € |
+| Servidores (Hosting) | Servidor VPS optimizado (anual) | 180 € |
+| Mobiliario de oficina | Puesto ergonómico | 350 € |
+| Gastos de constitución | Trámites administrativos | 60 € |
 | TOTAL INVERSIÓN | | 2.040 € |
 
-La mayor parte del capital se destina al equipo informático, ya que es la herramienta clave para garantizar la fluidez del desarrollo en PHP y el despliegue de contenedores. El resto de la inversión cubre la infraestructura digital mínima necesaria para que la plataforma sea accesible desde el primer día.
-
 ### 1.7.1- Costes
+**Costes fijos mensuales:**
+- **Salario del profesional:** 600 € (Retribución básica del promotor).
+- **Cuota de Autónomos:** 80 € (Tarifa plana).
+- **Mantenimiento Servidor/Dominios:** 15 €.
+- **Gestoría fiscal:** 50 €.
+- **Suministros (Proporcional):** 40 €.
+- **Total:** 785 €/mes (9.420 € anuales).
 
-Para el mantenimiento de la actividad, se distinguen los costes operativos según su naturaleza, incluyendo la carga fiscal y social obligatoria.
-
-Los costes fijos mensuales serían: 
-- Cuota de Autónomos (Coste Social): 80 € (Tarifa plana para nuevos autónomos durante el primer año).
-- Mantenimiento de Servidor y Dominios: 15 € (Alojamiento del entorno Docker y BD).
-- Gestoría fiscal: 50 € (Gestión de declaraciones trimestrales y anuales).
-- Suministros (Proporcional): 40 € (Internet y energía eléctrica).
-
-Los costes variables serían: 
-- Marketing y Publicidad: 50 € - 150 € (Inversión en redes sociales según el calendario de eventos).
-- Comisiones de Pasarela de Pago: 1,5% por transacción (en caso de venta de entradas).
-
-En cuanto a impuestos: 
-- IVA (21%): Se repercute a los clientes y se liquida trimestralmente.
-- IRPF: Retención del 7% en facturas emitidas a empresas (bonificación para nuevos autónomos).
+**Costes variables:**
+- Marketing y publicidad: 50 € - 150 €/mes según eventos.
+- Comisiones de pasarela de pago: 1,5% por transacción.
 
 ### 1.7.2- Ingresos
-La estrategia de ingresos se basa en un modelo donde el uso básico es gratuito para los usuarios, mientras que las empresas y organizadores pagan por servicios específicos.
-
-Previsión de ventas: 
-Se estima un crecimiento progresivo durante el primer año de actividad:
-- Publicidad y Patrocinios: 1.200 € anuales (Venta de banners y fichas destacadas para academias y tiendas).
-- Comisiones por Venta de Entradas: 600 € anuales (Gestión de inscripciones y entradas para concursos locales).
-- Servicios Premium para Organizadores: 400 € anuales (Herramientas avanzadas de votación y analíticas).
-
-Política de precios: 
-- Fichas de Usuario/Grupo: Gratuito (Estrategia de captación de tráfico).
-- Anuncios Locales: Desde 20 €/mes para tiendas y negocios gallegos.
-- Gestión de Concursos: Comisión del 3% sobre el valor de la entrada o cuota fija de 50 € por evento.
-- Espacios Patrocinados: 100 €/evento para aparecer como colaborador principal en la sección de noticias.
-
+Estrategia basada en el modelo de clientes cuantificado:
+- **Publicidad/Patrocinios:** 2.200 € anuales.
+- **Comisiones por Entradas:** 1.000 € anuales.
+- **Servicios Premium Organizadores:** 800 € anuales.
+- **TOTAL INGRESOS PREVISTOS:** 4.000 € anuales.
 ## 1.8- Viabilidad
 
 ### 1.8.1- Viabilidad técnica
