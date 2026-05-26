@@ -29,47 +29,42 @@ En cuanto a la oportunidad de negocio y comercialización, aunque la idea nace c
 
 ## 3- Estudio de alternativas y viabilidad
 ### 3.1- Estudio de alternativas
-Alternativas
-- A1- Desenvolvemento dende cero con API Rest java spring Boot + HTML5 + CSS3 + javascript nativo  
-- A2- Desenvolvemento desde cero con API Rest Node.js + HTML5 + CSS3 + javascript nativo  .  
-- A3- Desenvolvemento desde cero modelo MVC en php + HTML5 + CSS3 + javascript nativo.  
+Alternativas:
+- A1- Desarrollo desde cero con API Rest Java Spring Boot + HTML5 + CSS3 + Javascript nativo.
+- A2- Desarrollo desde cero con API Rest Node.js + HTML5 + CSS3 + Javascript nativo.
+- A3- Desarrollo desde cero modelo MVC en PHP + HTML5 + CSS3 + Javascript nativo.
 
- | **Alternativa** |  **Viabilidade técnica** | **Viabilidade económica** | **Temporalidade** | **Valoración Global** |
- | ------ | ------ |  ------ | ------ | ------ |
- | A1 | Baixa-media (4/10): Se requiere dominar Spring Boot. **Fortalezas**: Arquitectura sólida y profesional. **Debilidades**: Curva de aprendizaje alta y configuración compleja. | Medio (6/10): Se necesita un hosting con soporte java | Baja (3/10): Entre 4 y 6 meses por la complejidad el framework. | **5/10** |
- | A2 | Media-Alta (7/10): Javascript es conocido pero la arquitectura API Rest requiere control de asincronía.  **Fortalezas:** Escalable y gestión de alertas en tiempo real. **Debilidades:** Gestión de paquetes y seguridad de la API |Alta (8/10): Hostings económicos y eficientes en consumo de memoria. |Media (6/10): Entre 3 y 4 meses. Desarrollo más ágil que en Java |**7/10** |
- | A3 | Alta (9/10): Tecnologías dominadas y con entorno aislado con Docker. **Fortalezas:** Rápido, simple y fácil de desplegar. **Debilidades:** Menos eficiente en tiempo real que con Node.js | Muy alta (9/10): Cualquier hosting soporta PHP/Docker. Coste mínimo de mantenimiento. | Alta (8/10): Entre 1 y 2 meses. Es la opción más rápida al ser un modelo conocido| **9/10** |
-
+| **Alternativa** | **Viabilidad técnica** | **Viabilidad económica** | **Temporalidad** | **Valoración Global** |
+| ------ | ------ | ------ | ------ | ------ |
+| A1 | Baixa-media (4/10): Alta curva de aprendizaje y configuración compleja. | Medio (6/10): Hosting con soporte Java. | Baja (3/10): 4-6 meses. | **5/10** |
+| A2 | Media-Alta (7/10): Arquitectura API Rest requiere control asincronía. | Alta (8/10): Hosting eficiente y escalable. | Media (6/10): 3-4 meses. | **7/10** |
+| A3 | Alta (9/10): Tecnologías dominadas. | Muy alta (9/10): Coste mínimo y gran compatibilidad. | Alta (8/10): 1-2 meses. | **9/10** |
 
 ### 3.2 Justificación de la alternativa
-Tras el análisis de las propuestas anteriores, elegí la alternativa A3 como la base del desarrollo para el proyecto. Esta decisión fue basada en los siguientes puntos clave: 
-- Viabilidad técnica y control de entorno. El uso de Docker me garantiza un entorno de desarrollo idéntico al de producción, eliminando errores de compatibilidad y facilitándome el despliegue de los servicios. 
-- Curva de aprendizaje optimizada. Al emplear tecnologías ya conocidas el esfuerzo se centra directamente en la lógica del programa, en lugar de invertir tiempo en configurar frameworks. 
-- Rapidez en el desarrollo al usar MVC en PHP me permite estructurar el proyecto de una forma escalable en un tiempo reducido, garantizando que el programa funcione en pocas semanas. 
-- Fricción mínima de despliegue. Al combinar PHP y Docker permite que el paso a producción sea prácticamente instantáneo, asegurando que todo funciona correctamente desde el primer momento. 
+Tras el análisis de las propuestas anteriores, elegí la alternativa **A3** como base del desarrollo por los siguientes puntos clave: 
+- **Curva de aprendizaje optimizada:** Al emplear tecnologías nativas y un patrón MVC conocido, el esfuerzo se centra en la lógica del negocio y la funcionalidad, evitando la complejidad innecesaria de configurar frameworks pesados.
+- **Rapidez y escalabilidad:** El uso de PHP puro bajo arquitectura MVC permite una estructura limpia, modular y fácil de mantener, garantizando que el proyecto sea funcional en los plazos previstos.
+- **Control total del código:** Al no depender de librerías externas o frameworks de terceros (como Spring Boot), tengo un control absoluto sobre la seguridad y el rendimiento de la aplicación, facilitando auditorías de código.
+- **Eficiencia en el desarrollo:** Al trabajar con tecnologías que domino, puedo dedicar más tiempo a la calidad de la interfaz de usuario y la experiencia de los integrantes de la comunidad, asegurando un despliegue sin errores.
 
-La alternativa con Node.js (A2) se valoró por la modernidad y ser adecuada para la gestión de eventos en tiempo real; sin embargo, fue descartada ya que consideré que debía priorizar la estabilidad del proyecto y asegurar el cumplimiento de los plazos de entrega utilizando lenguajes y herramientas ya conocidas. 
-
-## 4- Requirimientos técnicos
-### Infraestructura y despliegue
-- Contenedores (Docker y Docker Compose).
-- Servidor de Base de datos para MariaDB. 
-- Servidor web con Apache. 
-- Entorno de ejecución para PHP con las extensiones necesarias para la conexión de la base de datos con PDO. 
-- Gestión de dependencias con composer.
+## 4- Requerimientos técnicos
+### Infraestructura y despliegue (Hosting)
+Para la puesta en producción, la plataforma requiere un hosting que garantice estabilidad y compatibilidad con el stack tecnológico (PHP 8.4 y MariaDB). Se optará por un **Servidor VPS (Virtual Private Server)**:
+- **Servidor Web:** Apache 2.4 o superior, configurado para soportar el patrón MVC (gestión de .htaccess).
+- **Entorno de ejecución:** PHP 8.4, con extensiones pdo_mysql, mbstring y gd.
+- **Base de Datos:** MariaDB 10.x para persistencia de datos y consultas optimizadas.
+- **Sistema Operativo:** Linux (Debian/Ubuntu Server) para gestión eficiente de permisos y seguridad.
+- **Escalabilidad:** Servidor con al menos 2GB de RAM para manejar tráfico inicial.
 
 ### Backend (Lógica de Negocio)
-Se opta por un desarrollo robusto por parte del servidor sin depender de frameworks siguiendo el patrón MVC. 
-- Lenguaje: PHP versión 8.4 .
-- Técnicas: Programación orientada a objetos y uso de PDO para realizar consultas y prevenir ataques de inyección.
-- Gestión de sesiones: Sistema nativo de PHP para el control de acceso de usuarios de la web. 
-- API: Implementación de endpoints internos en PHP para gestionar las asincronías del frontend.
+- Lenguaje: PHP 8.4 con Programación Orientada a Objetos.
+- Seguridad: Uso de PDO para prevenir inyecciones SQL.
+- Sesiones: Sistema nativo para control de acceso.
 
 ### Frontend (Interfaz de Usuario)
-- Estructura: HTML5. 
-- Estilos: CSS3. 
-- Interactividad: Javascript nativo. 
-- Librerías: FontAwesome (iconografía) y Google Fonts (tipografía).
+- Estructura: HTML5, CSS3, Javascript nativo.
+- Optimización: Eventos delegados en JS para mejorar el rendimiento.
+- Librerías: FontAwesome y Google Fonts.
 
 ## 5- Planificación
 La creación total del proyecto se llevará a cabo en unas 14 semanas aproximadamente. 
