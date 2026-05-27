@@ -22,7 +22,25 @@ No caso de utilizar tecnoloxías diferentes ás estudadas no ciclo formativo, fa
 > (No uso ninguna tecnología nueva)
 
 ## 4- Pruebas
-El principal problema que me estoy encontrando es que quería "replicar" de forma sencilla un archivo sh que tiene la empresa de prácticas, el cual al ejecutarse levanta los contenedores y abre directamente el navegador con la página del localhost. 
-En general, todo lo que fue configurar el entorno fue lo que más dificultades me supuso.
+
+### Pruebas de despliegue
+
+El principal reto durante esta fase fue la configuración del entorno. El objetivo era replicar el comportamiento de un script `install.sh` utilizado en la empresa de prácticas, que al ejecutarse levanta los contenedores Docker y abre automáticamente el navegador en el localhost. Una vez resuelto, el script quedó funcional y automatiza todo el proceso de despliegue.
+
+### Pruebas funcionales
+> ✅ = Funcionalidades testeadas y verificado su correcto funcionamiento; ❌ = Funcionalidades que presentan algún problema.
+
+| Funcionalidad | Resultado | Observaciones |
+| :--- | :---: | :--- |
+| Registro de usuario | ✅ | |
+| Inicio de sesión | ✅ | |
+| Cierre de sesión | ✅ | |
+| Edición de perfil | ✅ | |
+| Publicación de noticia/evento | ✅ | |
+| Edición solo de las publicaciones propias | ✅ | |
+| Comentarios en publicaciones | ✅ | |
+| Buscador de eventos | ✅ | |
+| Visualización responsive (móvil) | ✅ | |
+| Comprobación de tests de accesibilidad (validator y wave extension) | ✅/❌ | Al usar los archivos de las vistas como .php me aparecen muchos errores en el validator de "Saw <?. Probable cause: Attempt to use an XML processing instruction in HTML. (XML processing instructions are not supported in HTML.)" pero en wave me dice que todo es correcto |
 
 [**<-Anterior**](../../README.md)
