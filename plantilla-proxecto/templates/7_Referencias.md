@@ -22,9 +22,8 @@
 - [Figma - Prototipo All Dance Together](https://www.figma.com/design/ukKq3Y8y8XER9wNLB7jRoA/Demo-All-Dance-Together?m=auto&t=bVj0iDurSxHSnzT7-6)
 - [Font Awesome - Iconografía](https://fontawesome.com/)
 - [Google Fonts](https://fonts.google.com/)
-- [Claude (Anthropic)](https://claude.ai/) - Asistente de IA utilizado como apoyo en la redacción de documentación y resolución de dudas durante el desarrollo.
+- [Claude (Anthropic)](https://claude.ai/) 
 
-> Si consultaste tutoriales, foros (Stack Overflow, etc.) o artículos concretos durante el desarrollo, añádelos aquí.
 
 ## 3- Sitios oficiales del software utilizado
 
@@ -33,7 +32,7 @@
 - [Apache HTTP Server](https://httpd.apache.org/)
 - [Docker](https://www.docker.com/)
 - [Figma](https://www.figma.com/)
-- [Visual Studio Code](https://code.visualstudio.com/) *(u otro IDE utilizado)*
+- [Visual Studio Code](https://code.visualstudio.com/) 
 
 ## 4- Normas o documentos legales
 
