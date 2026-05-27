@@ -10,7 +10,7 @@
 
 ## 1- Codificación
 
-La carpeta se encuentra subida en plantilla-proxecto/tfc.zip
+La carpeta se encuentra subida en plantilla-proxecto/AllDanceTogether.zip
 
 ## 2- Prototipos
 
@@ -19,6 +19,7 @@ https://www.figma.com/design/ukKq3Y8y8XER9wNLB7jRoA/Demo-All-Dance-Together?m=au
 ## 3- Innovación
 
 No caso de utilizar tecnoloxías diferentes ás estudadas no ciclo formativo, fai unha descrición dos retos asumidos e como se resolveron.
+> (No uso ninguna tecnología nueva)
 
 ## 4- Pruebas
 El principal problema que me estoy encontrando es que quería "replicar" de forma sencilla un archivo sh que tiene la empresa de prácticas, el cual al ejecutarse levanta los contenedores y abre directamente el navegador con la página del localhost. 
