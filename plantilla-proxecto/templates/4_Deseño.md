@@ -9,31 +9,26 @@
 ## 1- Diagrama da arquitectura
 La arquitectura de All Dance Together se basa en un modelo Cliente-Servidor estructurado en tres capas, utilizando el patrón de diseño MVC (Modelo-Vista-Controlador) para separar la lógica de negocio de la interfaz de usuario. 
 
-Para garantizar la portabilidad y un entorno de ejecución idéntico en desarrollo y producción, todo el sistema se despliega mediante contenedores Docker.
 
 ### Descripción de las capas:
-
-- Capa de Presentación (Frontend): Construida con HTML5, CSS3 y JavaScript nativo. Se encarga de renderizar las fichas de los grupos, el calendario de eventos y los foros de discusión, asegurando una experiencia responsive para dispositivos móviles y escritorio.
-- Capa de Negocio (Backend): Implementada en PHP 8.4 siguiendo el patrón MVC. Procesa las peticiones del usuario, gestiona la lógica de las notificaciones de eventos próximos y asegura la comunicación con la base de datos de forma segura.
-- Capa de Datos: Gestionada por un servidor MariaDB. El acceso a los datos se realiza exclusivamente mediante PDO (PHP Data Objects) para prevenir ataques de inyección SQL y garantizar la integridad de la información de la comunidad.
+- **Capa de Presentación (Frontend):** Construida con HTML5, CSS3 y JavaScript nativo. Se encarga de renderizar las fichas de los grupos, el calendario de eventos y los foros de discusión, asegurando una experiencia responsive para dispositivos móviles y escritorio.
+- **Capa de Negocio (Backend):** Implementada en PHP 8.4 siguiendo el patrón MVC. Procesa las peticiones del usuario, gestiona la lógica de las notificaciones de eventos próximos y asegura la comunicación con la base de datos de forma segura.
+- **Capa de Datos:** Gestionada por un servidor MariaDB. El acceso a los datos se realiza exclusivamente mediante PDO (PHP Data Objects) para prevenir ataques de inyección SQL y garantizar la integridad de la información de la comunidad.
 
 ### Diagrama de componentes y despliegue:
 
 ```mermaid
 graph LR
-    subgraph "Dispositivo de Usuario"
-
-        A[Navegador Web / HTML5 + JS]
+    subgraph "Cliente"
+        A[Navegador Web]
     end
 
-    subgraph "Contenedor Docker (Servidor Web)"
-
-        B[Servidor Apache]
-        C[Motor PHP 8.4 - Lógica MVC]
+    subgraph "Servidor de Aplicaciones"
+        B[Servidor Web: Apache]
+        C[Lógica de Negocio: PHP 8.4 MVC]
     end
 
-    subgraph "Contenedor Docker (Base de Datos)"
-
+    subgraph "Servidor de Datos"
         D[(MariaDB)]
     end
 
@@ -42,8 +37,16 @@ graph LR
     C <-->|Conexión Segura PDO| D
   ```
 
-## 2- Casos de uso
+### Estrategia de despliegue 
+Para garantizar la portabilidad y un entorno de ejecución idéntico entre el desarrollo y la producción, el sistema se despliega mediante la herramienta Docker Compose. Esta tecnología permite definir y ejecutar aplicaciones multicontenedor, facilitando la gestión de las dependencias entre el servidor web y la base de datos. En entornos de producción, esta configuración base permite escalar la infraestructura hacia orquestadores como Docker Swarm o Kubernetes en caso de que se quisiera.
 
+Para automatizar este proceso, se ha desarrollado un script de instalación (`install.sh`) que realiza las siguientes funciones:
+* **Validación:** Comprueba la presencia de Docker y Docker Compose en el sistema anfitrión.
+* **Limpieza:** Ejecuta `docker compose down` para asegurar un despliegue limpio, eliminando contenedores previos.
+* **Construcción y Despliegue:** Ejecuta `docker compose build` y `docker compose up -d` para levantar los servicios de forma desatendida.
+* **Verificación:** Realiza un sondeo mediante `curl` para confirmar que la aplicación está operativa y lista para su uso.
+
+## 2- Casos de uso
 ### Actores del Sistema
 | Actor | Descripción | Nivel de Acceso |
 |-------|-------------|-----------------|
@@ -52,69 +55,10 @@ graph LR
 | Organizador | Usuario con permisos para crear y gestionar eventos | Lectura/Escritura de eventos |
 | Administrador | Superusuario con control total del sistema | Control total |
 
-![alt text](image-1.png)
+![alt text](../doc/img/image-1.jpg)
 
 ## 3- Diagrama de Base de Datos
-
-                        ┌──────────────────┐
-                        │  NOTIFICACION    │
-                        ├──────────────────┤
-                        │ ◉ id             │
-                        │ • tipo           │
-                        │ • contenido      │
-                        │ • leída          │
-                        │ • fecha_creación │
-                        │ • FK: usuario_id │
-                        │ • FK: evento_id  │
-                        └────┬────────┬────┘
-                             │        │
-                    RECIBE (1:N)   GENERA (1:N)
-                             │        │
-                             │        └──────────┐
-                    ┌────────▼────────┐          │
-                    │     USUARIO     │          │
-                    ├─────────────────┤          │
-                    │ ◉ id            │          │
-                    │ • email         │          │
-                    │ • contraseña    │          │
-                    │ • nombre        │          │
-                    │ • rol           │          │
-                    │ • provincia     │          │
-                    │ • ciudad        │          │
-                    │ • teléfono      │          │
-                    │ • bio           │          │
-                    │ • foto_perfil   │          │
-                    │ • estado        │          │
-                    │ • fecha_registro│          │
-                    │ • redes_sociales│          │
-                    └────────┬────────┘          │
-                             │                   └──────────┐ 
-            ┌────────────────┼────────────────┐             │
-            │                │                │             │
-       CREA (1:N)     ORGANIZA (1:N)   ESCRIBE (1:N)        │
-            │                │                │             │
-     ┌──────▼──────┐  ┌──────▼──────┐  ┌──────▼───────┐     │
-     │    GRUPO    │  │   EVENTO    │  │  HILO_FORO   │     │
-     ├─────────────┤  ├─────────────┤  ├──────────────┤     │
-     │ ◉ id        │  │ ◉ id        │ │ ◉ id         │     │
-     │ • nombre    │  │ • nombre    │  │ • título     │     │
-     │ • miembros  │  │ • tipo      │  │ • contenido  │     │
-     │ • galería   │  │ • fecha_hora│  │ • categoría  │     │
-     │ • ciudad    │  │ • ciudad    │  │ • estado     │     │
-     │ • descripción  │ • capacidad │  │ • fecha_crea │     │
-     │ • año_form  │  │ • descripción  └──────┬───────┘     │
-     └─────────────┘  │ • estado    │         │             │
-                      │ • fecha_crea   CONTIENE (1:N)       │
-                      └─────▲───────┘         │             │
-                            │         ┌───────▼─────────┐   │
-                            │         │ MENSAJE_FORO    │   │
-                            │         ├─────────────────┤   │
-                            │         │ ◉ id            │   │
-                            │         │ • contenido     │   │
-                            │         │ • fecha_creación│   │
-                            │         │ • reportes      │   │
-                            │         └─────────────────┘   │
-                            └───────────────────────────────┘
+![alt text](../doc/img/BD.jpg)
 
 Leyenda: ◉ = Atributo identificador (clave primaria) • = Atributo descriptor FK = Clave foránea (relación)
 
