@@ -60,17 +60,16 @@ Para automatizar este proceso, se ha desarrollado un script de instalación (`in
 ## 3- Diagrama de Base de Datos
 ![alt text](../doc/img/BD.jpg)
 
-Leyenda: ◉ = Atributo identificador (clave primaria) • = Atributo descriptor FK = Clave foránea (relación)
+**Leyenda:** ◉ = Atributo identificador (clave primaria) • = Atributo descriptor | FK = Clave foránea (relación)
 
 | # | Relación | Entidad 1 | Entidad 2 | Cardinalidad | Atributo FK | Descripción |
-|---|----------|-----------|-----------|--------------|-------------|-------------|
-| R1 | CREA | USUARIO | GRUPO | 1:N | usuario_id | Un usuario puede crear 0 o más grupos |
-| R2 | ORGANIZA | USUARIO | EVENTO | 1:N | organizador_id | Un usuario organizador puede crear múltiples eventos |
-| R3 | ESCRIBE (Hilos) | USUARIO | HILO_FORO | 1:N | usuario_id | Un usuario puede crear múltiples hilos |
-| R4 | ESCRIBE (Mensajes) | USUARIO | MENSAJE_FORO | 1:N | usuario_id | Un usuario puede escribir múltiples mensajes |
-| R5 | CONTIENE | HILO_FORO | MENSAJE_FORO | 1:N | hilo_id | Un hilo contiene 0 o más mensajes |
-| R6 | RECIBE | USUARIO | NOTIFICACION | 1:N | usuario_id | Un usuario puede recibir múltiples notificaciones |
-| R7 | GENERA | EVENTO | NOTIFICACION | 1:N | evento_id | Un evento puede generar múltiples notificaciones |
+|---|-----------|------------|------------|--------------|--------------|-------------|
+| R1 | ES | USUARIOS_TIPOS | USUARIOS | 1:N | id_tipo_usuario | Un tipo de usuario puede pertenecer a múltiples usuarios |
+| R2 | PUEDE_SER | USUARIOS_TIPOS | PERFILES | 1:N | id_tipo_usuario | Un tipo de usuario puede estar asociado a múltiples perfiles |
+| R3 | TIENE | USUARIOS | PERFILES | 1:1 | id_usuario | Un usuario tiene un único perfil asociado |
+| R4 | CREA | USUARIOS | PUBLICACIONES | 1:N | id_creador | Un usuario puede crear múltiples publicaciones |
+| R5 | ESCRIBE | USUARIOS | COMENTARIOS | 1:N | id_usuario | Un usuario puede escribir múltiples comentarios |
+| R6 | PUEDE_TENER | PUBLICACIONES | COMENTARIOS | 1:N | id_publicacion | Una publicación puede tener múltiples comentarios |
 
 
 
